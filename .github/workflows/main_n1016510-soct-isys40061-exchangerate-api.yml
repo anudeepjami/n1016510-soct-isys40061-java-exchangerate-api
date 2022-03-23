@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/dist/*.war'
+          path: '${{ github.workspace }}/dist/ROOT.war'
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,4 +51,5 @@ jobs:
           app-name: 'n1016510-soct-isys40061-exchangerate-api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C84621F514FF4F23AADAD5EBDE2E097A }}
-          package: '*.war'
+          package: ROOT.war
+          removeAdditionalFilesFlag: true
