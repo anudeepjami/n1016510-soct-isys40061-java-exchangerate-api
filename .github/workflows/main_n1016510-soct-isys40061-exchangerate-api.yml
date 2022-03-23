@@ -20,6 +20,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '11'
+          
+      - name: Build debug dist
+        run: |
+          mv ${{ github.workspace }}/dist/*.war ${{ github.workspace }}/dist/ROOT.war
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
